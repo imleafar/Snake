@@ -8,3 +8,6 @@ Excute:
 
 
 and open **index.html**
+
+
+Use **W** **S** **D** **A** in game.
