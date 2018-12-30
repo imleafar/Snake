@@ -1,0 +1,23 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "Game retro of snake",
+  "main": "./src/game.js",
+  "scripts": {
+    "dev": "node ./node_modules/webpack/bin/webpack --watch --config webpack.config.js --mode development",
+    "prod": "node ./node_modules/webpack/bin/webpack --config webpack.config.js --mode production"
+  },
+  "author": "Rafael Teixeira",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {}
+}
