@@ -1,13 +1,13 @@
 # Snake
 Game retro of snake
 
-Excute:
+Execute:
 
 
 `npm install` && `npm run dev`
 
 
-and `access adress is localhost:9000`
+and access adress is **localhost:9000**
 
 
 Use **W** **S** **D** **A** in game.
