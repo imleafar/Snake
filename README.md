@@ -7,7 +7,7 @@ Excute:
 `npm install` && `npm run dev`
 
 
-and open **index.html**
+and `access adress is localhost:9000`
 
 
 Use **W** **S** **D** **A** in game.
