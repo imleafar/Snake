@@ -5,6 +5,7 @@ export class Snake {
     this.width = 10;
     this.height = 10;
     this.joystick = new JoyStick(this.run.bind(this));
+    this.audio = new Audio('./soundEffects/eat.mp3');
     this.default();
     setInterval(function () {
       this.run();
@@ -29,6 +30,7 @@ export class Snake {
   eat() {
     let lastPoint = this.points[this.points.length - 1];
     this.points.push({ x: lastPoint.x - 10, y: lastPoint.y });
+    this.audio.play();
   }
 
   gameOver() {

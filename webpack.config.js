@@ -1,5 +1,6 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: ['./src/game.js'],
@@ -7,18 +8,25 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'game.js'
   },
-  plugins: [new HtmlWebpackPlugin({
-    title: 'Snake',
-    template: './src/index.html',
-    minify: {
-      collapseWhitespace: true,
-      removeComments: true,
-      removeRedundantAttributes: true,
-      removeScriptTypeAttributes: true,
-      removeStyleLinkTypeAttributes: true,
-      useShortDoctype: true
-    },
-  })],
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Snake',
+      template: './src/index.html',
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true
+      },
+    }),
+    new CopyWebpackPlugin([{
+      from: './src/soundEffects',
+      to: './soundEffects',
+      toType: 'dir'
+    }])
+  ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
