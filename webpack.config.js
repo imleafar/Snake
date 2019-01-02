@@ -25,6 +25,11 @@ module.exports = {
       from: './src/soundEffects',
       to: './soundEffects',
       toType: 'dir'
+    },
+    {
+      from: './src/sprites',
+      to: './sprites',
+      toType: 'dir'
     }])
   ],
   devServer: {

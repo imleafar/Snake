@@ -1,5 +1,6 @@
 import { Snake } from './snake';
 import { Apple } from './apple';
+import { Background } from './background';
 
 class Game {
   constructor() {
@@ -7,11 +8,12 @@ class Game {
     window.ctx = canvasSnake.getContext('2d');
     this.snake = new Snake();
     this.apple = new Apple();
+    this.background = new Background();
     this.update();
   }
 
   update() {
-    this.background();
+    this.background.draw();
     this.snake.update();
     this.apple.update();
     this.snakeEteApple();
@@ -19,15 +21,11 @@ class Game {
   }
 
   snakeEteApple() {
-    if (this.snake.x === this.apple.x && this.snake.y === this.apple.y) {
+    const samePosition = this.snake.x === this.apple.x && this.snake.y === this.apple.y;
+    if (samePosition) {
       this.snake.eat();
       this.apple.random();
     }
-  }
-
-  background() {
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, canvasSnake.width, canvasSnake.height);
   }
 }
 
