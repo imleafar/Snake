@@ -16,8 +16,7 @@ export class Snake {
 
   animate() {
     setInterval(function () {
-      if (this.joystick.init)
-        this.run();
+      this.run();
     }.bind(this), 100);
   }
 
@@ -49,7 +48,7 @@ export class Snake {
   get wallCollision() {
     return this.x >= this.platform.width
       || this.y >= this.platform.height
-      || this.x <= 20
+      || this.x <= 10
       || this.y <= 20;
   }
 
