@@ -1,0 +1,9 @@
+body {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+}
+
+#canvasSnake {
+  border-radius: 10px;
+}

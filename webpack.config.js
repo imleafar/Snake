@@ -32,6 +32,11 @@ module.exports = {
       toType: 'dir'
     },
     {
+      from: './src/site.css',
+      to: './',
+      toType: 'dir'
+    },
+    {
       from: './src/favicon.ico',
       to: './',
       toType: 'dir'
