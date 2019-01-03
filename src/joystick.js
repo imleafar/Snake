@@ -1,9 +1,7 @@
+import { Direction } from './direction'
+
 export class JoyStick {
   constructor(callBackSnake) {
-    this.up = 0;
-    this.right = 1;
-    this.down = 2;
-    this.left = 3;
     this.keyCode = { w: 87, d: 68, s: 83, a: 65 };
     window.addEventListener('keydown', (event) => this.keyboard(event));
     this.default();
@@ -19,16 +17,16 @@ export class JoyStick {
 
     switch (event.keyCode) {
       case this.keyCode.w:
-        this.direction = this.up;
+        this.direction = Direction.up;
         break;
       case this.keyCode.d:
-        this.direction = this.right;
+        this.direction = Direction.right;
         break;
       case this.keyCode.s:
-        this.direction = this.down;
+        this.direction = Direction.down;
         break;
       case this.keyCode.a:
-        this.direction = this.left;
+        this.direction = Direction.left;
         break;
 
       default:
@@ -38,9 +36,9 @@ export class JoyStick {
   }
 
   keyIsBack(event) {
-    return this.direction === this.right && event.keyCode === this.keyCode.a ||
-      this.direction === this.left && event.keyCode === this.keyCode.d ||
-      this.direction === this.up && event.keyCode === this.keyCode.s ||
-      this.direction === this.down && event.keyCode === this.keyCode.w;
+    return this.direction === Direction.right && event.keyCode === this.keyCode.a ||
+      this.direction === Direction.left && event.keyCode === this.keyCode.d ||
+      this.direction === Direction.up && event.keyCode === this.keyCode.s ||
+      this.direction === Direction.down && event.keyCode === this.keyCode.w;
   }
 }
