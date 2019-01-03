@@ -9,6 +9,7 @@ class Game {
     this.snake = new Snake();
     this.apple = new Apple();
     this.background = new Background();
+    this.audioImpact = new Audio('./soundEffects/impact.mp3');
     this.update();
     this.score = 0;
   }
@@ -27,6 +28,7 @@ class Game {
     if (this.snake.wallCollision || this.snake.snakeAteHerself) {
       this.snake.default();
       this.score = 0;
+      this.audioImpact.play();
     }
   }
 
