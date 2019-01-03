@@ -30,6 +30,11 @@ module.exports = {
       from: './src/sprites',
       to: './sprites',
       toType: 'dir'
+    },
+    {
+      from: './src/favicon.ico',
+      to: './',
+      toType: 'dir'
     }])
   ],
   devServer: {

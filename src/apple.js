@@ -2,6 +2,10 @@ export class Apple {
   constructor() {
     this.width = 10;
     this.height = 10;
+    this.imageApple = new Image();
+    this.imageApple.src = './sprites/spriteSnake.png';
+    this.cutImageAppleX = 90;
+    this.cutImageAppleY = 0;
     this.random();
   }
 
@@ -19,7 +23,10 @@ export class Apple {
   }
 
   draw() {
-    ctx.fillStyle = 'red';
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(this.imageApple,
+      this.cutImageAppleX, this.cutImageAppleY,
+      this.width, this.height,
+      this.x, this.y,
+      this.width, this.height);
   }
 }
