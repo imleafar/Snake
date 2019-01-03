@@ -1,5 +1,6 @@
 export class Apple {
-  constructor() {
+  constructor(platform) {
+    this.platform = platform;
     this.width = 10;
     this.height = 10;
     this.imageApple = new Image();
@@ -14,8 +15,12 @@ export class Apple {
   }
 
   random() {
-    this.x = this.generateCoordinate(canvasSnake.width / 10);
-    this.y = this.generateCoordinate(canvasSnake.height / 10);
+    let x = this.generateCoordinate(this.platform.width / 10);
+    let y = this.generateCoordinate(this.platform.height / 10);
+    x = x < 20 ? 20 : x;
+    y = y < 30 ? 30 : y;
+    this.x = x;
+    this.y = y;
   }
 
   generateCoordinate(number) {

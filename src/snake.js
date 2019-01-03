@@ -2,7 +2,8 @@ import { JoyStick } from "./joystick";
 import { Direction } from './direction'
 
 export class Snake {
-  constructor() {
+  constructor(platform) {
+    this.platform = platform;
     this.width = 10;
     this.height = 10;
     this.imageSnake = new Image();
@@ -46,10 +47,10 @@ export class Snake {
   }
 
   get wallCollision() {
-    return this.x > canvasSnake.width
-      || this.y > canvasSnake.height
-      || this.x < 0
-      || this.y < 0;
+    return this.x >= this.platform.width
+      || this.y >= this.platform.height
+      || this.x <= 20
+      || this.y <= 20;
   }
 
   get snakeAteHerself() {

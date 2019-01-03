@@ -6,8 +6,9 @@ class Game {
   constructor() {
     window.canvasSnake = document.getElementById('canvasSnake');
     window.ctx = canvasSnake.getContext('2d');
-    this.snake = new Snake();
-    this.apple = new Apple();
+    this.platform = { width: 700, height: 460 };
+    this.snake = new Snake(this.platform);
+    this.apple = new Apple(this.platform);
     this.background = new Background();
     this.audioImpact = new Audio('./soundEffects/impact.mp3');
     this.update();
@@ -16,6 +17,7 @@ class Game {
 
   update() {
     this.background.draw();
+    this.drawXadrez();
     this.drawScore();
     this.snake.update();
     this.apple.update();
@@ -33,9 +35,23 @@ class Game {
   }
 
   drawScore() {
-    ctx.fillStyle = "#fff";
-    ctx.font = "30px Arial";
-    ctx.fillText(this.score, 10, 50);
+    ctx.fillStyle = '#fff';
+    ctx.font = '30px Arial';
+    ctx.fillText(this.score, 10, 28);
+  }
+
+  drawXadrez() {
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(168, 122, 79, 1)';
+    for (let index = 2; index < (canvasSnake.width / 10) - 1; index++) {
+      ctx.moveTo(10 * index, 30);
+      ctx.lineTo(10 * index, this.platform.height);
+    }
+    for (let index = 3; index < (canvasSnake.height / 10) - 1; index++) {
+      ctx.moveTo(20, 10 * index);
+      ctx.lineTo(this.platform.width, 10 * index);
+    }
+    ctx.stroke();
   }
 
   snakeEteApple() {

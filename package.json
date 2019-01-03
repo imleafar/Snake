@@ -4,7 +4,7 @@
   "description": "Game retro of snake",
   "main": "./src/game.js",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --mode development",
     "build:dev": "node ./node_modules/webpack/bin/webpack --watch --config webpack.config.js --mode development",
     "build:prod": "node ./node_modules/webpack/bin/webpack --config webpack.config.js --mode production"
   },
