@@ -10,9 +10,11 @@ export class JoyStick {
 
   default() {
     this.direction = this.right;
+    this.init = false;
   }
 
   keyboard(event) {
+    this.init = true;
     if (this.keyIsBack(event)) return;
 
     switch (event.keyCode) {

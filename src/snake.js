@@ -15,8 +15,8 @@ export class Snake {
 
   animate() {
     setInterval(function () {
-      this.run();
-      this.gameOver();
+      if (this.joystick.init)
+        this.run();
     }.bind(this), 100);
   }
 
@@ -39,15 +39,10 @@ export class Snake {
   eat() {
     const lastPoint = this.points[this.points.length - 1];
     let newPoint = {...lastPoint};
-    newPoint.x -= 10;
+    newPoint.x = -10;
+    newPoint.y = -10;
     this.points.push(newPoint);
     this.audio.play();
-  }
-
-  gameOver() {
-    if (this.wallCollision || this.snakeAteHerself) {
-      this.default();
-    }
   }
 
   get wallCollision() {
@@ -93,23 +88,30 @@ export class Snake {
 
   drawHead() {
     let headSnake = this.points[0];
+    let x = 30;
+    let y = 10;
     switch (headSnake.direction) {
       case Direction.up:
-        this.drawImage(40, 0, headSnake.x, headSnake.y);
+        x = 40;
+        y = 0;
         break;
       case Direction.right:
-        this.drawImage(30, 10, headSnake.x, headSnake.y);
+        x = 30;
+        y = 10;
         break;
       case Direction.down:
-        this.drawImage(30, 0, headSnake.x, headSnake.y);
+        x = 30;
+        y = 0;
         break;
       case Direction.left:
-        this.drawImage(40, 10, headSnake.x, headSnake.y);
-        break;
+        x = 40;
+        y = 10;
+      break;
 
       default:
         break;
     }
+    this.drawImage(x, y, headSnake.x, headSnake.y);
   }
 
   drawImage(cutPositionX, cutPositionY, x, y) {
@@ -143,11 +145,7 @@ export class Snake {
 
   updateCoordinateSnake() {
     for (let index = this.points.length - 1; index > 0; index--) {
-      let ponintCurrent = this.points[index];
-      const pointBefore = this.points[index - 1];
-      ponintCurrent.x = pointBefore.x;
-      ponintCurrent.y = pointBefore.y;
-      ponintCurrent.direction = pointBefore.direction;
+     this.points[index] = {...this.points[index - 1]}
     }
     this.points[0].x = this.x;
     this.points[0].y = this.y;
