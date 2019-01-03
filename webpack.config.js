@@ -11,7 +11,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Snake',
-      template: './src/index.html',
+      template: './index.html',
       minify: {
         collapseWhitespace: true,
         removeComments: true,
@@ -22,22 +22,22 @@ module.exports = {
       },
     }),
     new CopyWebpackPlugin([{
-      from: './src/soundEffects',
+      from: './soundEffects',
       to: './soundEffects',
       toType: 'dir'
     },
     {
-      from: './src/sprites',
+      from: './sprites',
       to: './sprites',
       toType: 'dir'
     },
     {
-      from: './src/site.css',
+      from: './css/site.css',
       to: './',
       toType: 'dir'
     },
     {
-      from: './src/favicon.ico',
+      from: './favicon.ico',
       to: './',
       toType: 'dir'
     }])
