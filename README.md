@@ -1,5 +1,5 @@
 # Snake
-Game retro of snake
+Retro game
 
 Execute:
 
